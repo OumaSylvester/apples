@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Register Apple{% endblock title %}
+{% block content %}
+    <section>
+        <div class="container mt-5 pt-5">
+            <div class="row">
+                <div class="col-12 col-sm-8 col-md-6 m-auto">
+                    <div class="card border-dark shadow">
+                        <div class="card-body text-center">
+                            <h3>Register Apple</h3>
+                            <form method="post">
+                                {% csrf_token %}
+                                {{ form|crispy}}
+                                <div class="text-center mt-3">
+                                    <button class="btn btn-primary" type="submit">Submit</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        // const getlocation = document.getElementById('getlocation');
+        // getlocation.addEventListener('click', evt=>{
+        //     if ('geolocation' in navigator){
+        //         navigator.geolocation.getCurrentPosition(position=>{
+        //             let latitude = position.coords.latitude;
+        //             let longitude = position.coords.longitude;
+
+        //             console.log(latitude, longitude);
+        //         },error=>{
+        //             console.log(error.code);
+        //         });
+        //     }else{
+        //         console.log("Not Supported");
+        //     }
+        // });
+
+        var loc = document.getElementById('geolocation');
+        function getLocation(){
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                loc.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            lat.value =
+            loc.value = "Lat: " + position.coords.latitude + "," + " Long: " + position.coords.longitude;
+        }
+
+    </script>
+{% endblock content %}

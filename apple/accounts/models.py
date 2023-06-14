@@ -3,4 +3,4 @@ from django.contrib.auth.models import AbstractUser
 
 
 class CustomUser(AbstractUser):
-    id_number = models.IntegerField()
+    id_number = models.IntegerField(null=True)
