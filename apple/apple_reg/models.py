@@ -10,7 +10,7 @@ class Apple(models.Model):
     long = models.FloatField()
 
     def __str__(self):
-        return self.id
+        return self.breed
 
     def get_absolute_url(self):
         return reverse('apple_register', {'pk': self.pk})
